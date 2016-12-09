@@ -7,4 +7,14 @@ attr_reader(:name, :id)
     @id = attributes[:id]
 
   end
+
+  define_singleton_method(:all) do
+    returned_stylists = DB.exec("SELECT * FROM stylists;")
+    stylist = []
+    returned_stylists.each() do |stylist|
+      name = name.fetch("name")
+      stylist.push(Stylist.new({:name => name}))
+    end
+    stylist
+  end
 end
