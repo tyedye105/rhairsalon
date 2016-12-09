@@ -8,13 +8,23 @@ attr_reader(:name, :id)
 
   end
 
+  define_method(:==) do |another_stylist|
+    self.name().==(another_stylist.name())
+  end
+
   define_singleton_method(:all) do
     returned_stylists = DB.exec("SELECT * FROM stylists;")
-    stylist = []
+    stylists = []
     returned_stylists.each() do |stylist|
-      name = name.fetch("name")
-      stylist.push(Stylist.new({:name => name}))
+      name = stylist.fetch("name")
+      id = stylist.fetch("id").to_i()
+      stylists.push(Stylist.new({:name => name, :id => id}))
     end
-    stylist
+    stylists
+  end
+
+  define_method(:save) do
+    result = DB.exec("INSERT INTO stylists (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
   end
 end
