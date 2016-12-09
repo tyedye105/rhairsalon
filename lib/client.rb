@@ -36,4 +36,14 @@ attr_reader(:name, :id)
     @name = attributes.fetch(:name)
     DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
   end
+
+  define_singleton_method(:find) do |search_id|
+    found_client = nil
+    Client.all().each do |client|
+      if client.id() == search_id
+        found_client = client
+      end
+    end
+    found_client
+  end
 end
