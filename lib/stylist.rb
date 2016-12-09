@@ -27,4 +27,8 @@ attr_reader(:name, :id)
     result = DB.exec("INSERT INTO stylists (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
   end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM stylists WHERE id = ('#{@id}');")
+  end
 end
