@@ -57,4 +57,14 @@ end
     end
   end
 
+  describe('.find') do
+    it('will find the stylist by id and return the asscoiated styllist from the database') do
+      new_stylist1.save()
+      new_stylist2 = Stylist.new({:name => 'Tina', :id => nil})
+      new_stylist2.save()
+      expect(Stylist.find(new_stylist2.id())).to(eq(new_stylist2))
+
+    end
+  end
+
 end
