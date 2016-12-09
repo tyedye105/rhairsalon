@@ -49,4 +49,12 @@ end
     end
   end
 
+  describe('#update') do
+    it('lets you update the stylist in the database') do
+      new_stylist1.save()
+      new_stylist1.update({:name => "Anna"})
+      expect(new_stylist1.name()).to(eq("Anna"))
+    end
+  end
+
 end

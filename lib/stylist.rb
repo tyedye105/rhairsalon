@@ -31,4 +31,9 @@ attr_reader(:name, :id)
   define_method(:delete) do
     DB.exec("DELETE FROM stylists WHERE id = ('#{@id}');")
   end
+
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name)
+    DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
+  end
 end
