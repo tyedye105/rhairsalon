@@ -1,6 +1,6 @@
 require('spec_helper')
 
-new_client1 = Client.new({:name => 'Tina', :id => nil})
+new_client1 = Client.new({:name => 'Tina',:id => nil, :stylist_id => 1})
 
 describe('Client')do
 
@@ -11,17 +11,10 @@ describe('Client')do
     end
   end
 
-  describe('#id') do
-    it('will return the id of the client') do
-      new_client = Client.new({:name => 'Ralph', :id => 1})
-      expect(new_client.id()).to(eq(1))
-    end
-  end
-
   describe("#==") do
     it("is the same client if it has the same name") do
       new_client1
-      new_client2 = Client.new({:name => 'Tina', :id => nil})
+      new_client2 = Client.new({:name => 'Tina',:id => nil, :stylist_id => 1})
       expect(new_client1).to(eq(new_client2))
   end
 end
@@ -42,7 +35,7 @@ end
   describe('#delete') do
     it('will delete a client from the database') do
       new_client1.save()
-      new_client2 = Client.new({:name => 'Tina', :id => nil})
+      new_client2 = Client.new({:name => 'Tina',:id => nil, :stylist_id => 1})
       new_client2.save()
       new_client1.delete()
       expect(Client.all()).to(eq([new_client2]))
@@ -57,10 +50,10 @@ end
     end
   end
 
-  describe('#find') do
+  describe('.find') do
     it('will let you find a client by id, and return the client.') do
     new_client1.save()
-    new_client2 = Client.new({:name => 'Gena', :id => nil})
+    new_client2 = Client.new({:name => 'Gena',:id => nil, :stylist_id => 2})
     new_client2.save()
     expect(Client.find(new_client1.id())).to(eq(new_client1))
     end

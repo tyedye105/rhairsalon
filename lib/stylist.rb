@@ -33,9 +33,13 @@ attr_reader(:name, :id)
   end
 
   define_method(:update) do |attributes|
-    @name = attributes.fetch(:name)
+    @name = attributes.fetch(:name, @name)
     DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
+
+    # attributes.fetch(:client_ids, []).each() do |client_id|
+    #   DB.exec("INSERT INTO clients (stylist_id) VALUES (#{@id});")
   end
+end
 
   define_singleton_method(:find) do |search_id|
     found_stylist = nil
@@ -46,4 +50,17 @@ attr_reader(:name, :id)
     end
     found_stylist
   end
+  
+  # define_method(:clients) do
+  #   clients = []
+  #   results = DB.exec("SELECT id FROM clients WHERE stylist_id = #{self.id()};")
+  #   results.each() do |result|
+  #     client_id = result.fetch('id').to_i()
+  #     client =  DB.exec("SELECT name FROM clients WHERE id = #{client_id};")
+  #     name = client.first().fetch("name")
+  #     clients.push(Client.new({:name => name, :id => client_id}))
+  #   end
+  #   clients
+  # end
+
 end

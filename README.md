@@ -8,7 +8,7 @@
 
 ## Description
 
-_This web app allows for users to add, update, or delete, stylists, and clients alike, while also allowing for adding clients to a speciffic stylist._
+_This web app allows for users to add, update, or delete, stylists, and clients alike, while also allowing for adding clients to a specific stylist._
 
 
 ## Setup/Installation Requirements
@@ -19,6 +19,7 @@ _This web app allows for users to add, update, or delete, stylists, and clients 
 * CREATE DATABASE hair_salon
 CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, client_id int)
 CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int)
+
 ####2. The files:
 * Clone this repository
 * install ruby (if not already there)

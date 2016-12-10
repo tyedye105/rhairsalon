@@ -1,7 +1,7 @@
 require('spec_helper')
 
 
-new_stylist1 = Stylist.new({:name => 'Tina', :id => nil})
+new_stylist1 = Stylist.new({:name => 'Tina', :id =>nil, :stylist_id =>1})
 
 describe('Stylist')do
   describe('#name') do
@@ -13,10 +13,11 @@ describe('Stylist')do
 
   describe('#id') do
     it('will return the id of the stylist') do
-      new_stylist = Stylist.new({:name => 'Ralph', :id => 1})
-      expect(new_stylist.id()).to(eq(1))
-    end
+      new_stylist = Stylist.new({:name => 'Ralph', :id => nil})
+      new_stylist.save()
+      expect(new_stylist.id()).to(be_an_instance_of(Fixnum))
   end
+end
 
   describe("#==") do
     it("is the same stylist if it has the same name") do
@@ -55,6 +56,13 @@ end
       new_stylist1.update({:name => "Anna"})
       expect(new_stylist1.name()).to(eq("Anna"))
     end
+    # it('will add a client to a stylist.') do
+    # new_stylist1.save()
+    # new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => nil})
+    # new_client.save()
+    # new_stylist1.update({:client_ids => [new_client.id()]})
+    # expect(new_stylist1.clients()).to(eq([new_client]))
+    # end
   end
 
   describe('.find') do
@@ -63,8 +71,16 @@ end
       new_stylist2 = Stylist.new({:name => 'Tina', :id => nil})
       new_stylist2.save()
       expect(Stylist.find(new_stylist2.id())).to(eq(new_stylist2))
-
     end
   end
 
-end
+  # describe('#clients') do
+  #   it('will return all of the clients of a stylist') do
+  #     new_stylist1.save()
+  #     new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => 1})
+  #     new_client.save()
+  #     new_stylist1.update({:client_ids => [new_client.id()]})
+  #     expect(new_stylist1.clients()).to(eq([new_client]))
+  #     end
+  #   end
+  end

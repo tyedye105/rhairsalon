@@ -1,0 +1,34 @@
+<div class="jumbotron">
+  <h1>Bad Hair Day Managment Tool</h1>
+</div>
+
+<div class="stylists_display">
+    <h3>List of current stylists:</h3>
+      <% if @stylists.any() %>
+      <ul>
+        <% @stylists.each() do |stylist| %>
+        <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name()%></a></li>
+        <% end %>
+      </ul>
+      <% else %>
+      <p> No stylists found, add them with the button below.</p>
+      <% end %>
+      <br>
+      <button  class="btn"><a href="/add_stylist" class="btn">Add a stylist</a></button>
+
+</div>
+<br>
+<div class="client display">
+  <h3> Here are the current list of clients:<h3>
+    <% if @clients.any() %>
+    <ul>
+      <% @clients.each() do |client| %>
+      <li><a href="/clients/<%= client.id() %>"><%= client.name()%></a></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p> No clients found, add them with the button below.</p>
+    <% end %>
+    <br>
+    <button  class="btn"><a href="/add_client" class="btn">Add a client</a></button>
+</div>
