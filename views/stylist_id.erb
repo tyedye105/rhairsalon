@@ -1,15 +1,15 @@
 <h1><%= @stylists.name() %></h1>
 <div class="" id="client_display">
   <h3> Here are the current clients this stylist has: <h3>
-    <% if @trains.clients().any?() %>
+    <% if @clients.any?() %>
 
     <ul>
-      <% @trains.clients().each() do |city| %>
+      <% @clients.each() do |city| %>
       <li><a href="/clients/<%= city.id() %>"><%= client.name() %></a></li>
       <% end %>
     </ul>
     <% else %>
-      <p>This stylist currently has no clients.</p>
+      <p>None.</p>
     <% end %>
   <br>
   <button><a href="/" class="btn">home</a></button>

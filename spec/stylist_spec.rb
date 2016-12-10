@@ -1,7 +1,7 @@
 require('spec_helper')
 
 
-new_stylist1 = Stylist.new({:name => 'Tina', :id =>nil, :stylist_id =>1})
+new_stylist1 = Stylist.new({:name => 'Tina', :id =>nil})
 
 describe('Stylist')do
   describe('#name') do

@@ -28,7 +28,7 @@ CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int)
 
 
 ## Known Bugs
-
+_ App is not feature complete. My understanding of how to use databases is not as great as I thought.
 
 
 ## Support and contact details

@@ -39,7 +39,6 @@ attr_reader(:name, :id)
     # attributes.fetch(:client_ids, []).each() do |client_id|
     #   DB.exec("INSERT INTO clients (stylist_id) VALUES (#{@id});")
   end
-end
 
   define_singleton_method(:find) do |search_id|
     found_stylist = nil
@@ -50,7 +49,6 @@ end
     end
     found_stylist
   end
-
   # define_method(:clients) do
   #   clients = []
   #   results = DB.exec("SELECT id FROM clients WHERE stylist_id = #{self.id()};")
@@ -63,4 +61,4 @@ end
   #   clients
   # end
 #
-# end
+end
