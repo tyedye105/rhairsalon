@@ -50,7 +50,7 @@ end
     end
     found_stylist
   end
-  
+
   # define_method(:clients) do
   #   clients = []
   #   results = DB.exec("SELECT id FROM clients WHERE stylist_id = #{self.id()};")
@@ -62,5 +62,5 @@ end
   #   end
   #   clients
   # end
-
-end
+#
+# end

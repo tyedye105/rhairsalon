@@ -4,7 +4,7 @@
 
 <div class="stylists_display">
     <h3>List of current stylists:</h3>
-      <% if @stylists.any() %>
+      <% if @stylists.any?() %>
       <ul>
         <% @stylists.each() do |stylist| %>
         <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name()%></a></li>
@@ -19,8 +19,8 @@
 </div>
 <br>
 <div class="client display">
-  <h3> Here are the current list of clients:<h3>
-    <% if @clients.any() %>
+  <h3> Here are the current list of clients:</h3>
+    <% if @clients.any?() %>
     <ul>
       <% @clients.each() do |client| %>
       <li><a href="/clients/<%= client.id() %>"><%= client.name()%></a></li>
