@@ -29,9 +29,9 @@ attr_reader(:name, :id, :stylist_id)
     self.name().==(another_client.name())
   end
 
-  # define_method(:delete) do
-  #   DB.exec("DELETE FROM clients WHERE id = ('#{@id}');")
-  # end
+  define_method(:delete) do
+    DB.exec("DELETE FROM clients WHERE id = ('#{@id}');")
+  end
 
   # define_method(:update) do |attributes|
   #   @name = attributes.fetch(:name)
