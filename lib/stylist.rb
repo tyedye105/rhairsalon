@@ -50,15 +50,14 @@ attr_reader(:name, :id)
     found_stylist
   end
   # define_method(:clients) do
-  #   clients = []
-  #   results = DB.exec("SELECT id FROM clients WHERE stylist_id = #{self.id()};")
-  #   results.each() do |result|
-  #     client_id = result.fetch('id').to_i()
-  #     client =  DB.exec("SELECT name FROM clients WHERE id = #{client_id};")
-  #     name = client.first().fetch("name")
-  #     clients.push(Client.new({:name => name, :id => client_id}))
-  #   end
-  #   clients
+  #   client_list = []
+  #   clients = DB.exec("SELECT * FROM clients WHERE stylist_id = ('#{@id}');")
+  #     clients.each() do |client|
+  #       name = client.fetch('name')
+  #       stylist_id = client.fetch('stylist_id').to_i()
+  #       client_list.push(Client.new({:name => name, :stylist_id => stylist_id}))
+  #     end
+  # client_list
   # end
-#
+
 end

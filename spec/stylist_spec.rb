@@ -77,10 +77,11 @@ end
   # describe('#clients') do
   #   it('will return all of the clients of a stylist') do
   #     new_stylist1.save()
-  #     new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => 1})
+  #     new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => new_stylist1.id()})
   #     new_client.save()
-  #     new_stylist1.update({:client_ids => [new_client.id()]})
-  #     expect(new_stylist1.clients()).to(eq([new_client]))
+  #     new_client2 = Client.new({:name => "Jenny", :id => nil, :stylist_id => new_stylist1.id()})
+  #     new_client2.save()
+  #     expect(new_stylist1.clients()).to(eq([new_client, new_client2]))
   #     end
   #   end
   end
