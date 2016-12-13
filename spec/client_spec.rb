@@ -49,13 +49,13 @@ end
     end
   end
 
-  # describe('#update') do
-  #   it('lets you update the client in the database') do
-  #     new_client1.save()
-  #     new_client1.update({:name => "Anna"})
-  #     expect(new_client1.name()).to(eq("Anna"))
-  #   end
-  # end
+  describe('#update') do
+    it('lets you update the client in the database') do
+      new_client1.save()
+      new_client1.update({:name => "Anna"})
+      expect(new_client1.name()).to(eq("Anna"))
+    end
+  end
 
   # describe('.find') do
   #   it('will let you find a client by id, and return the client.') do

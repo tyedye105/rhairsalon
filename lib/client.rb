@@ -33,10 +33,10 @@ attr_reader(:name, :id, :stylist_id)
     DB.exec("DELETE FROM clients WHERE id = ('#{@id}');")
   end
 
-  # define_method(:update) do |attributes|
-  #   @name = attributes.fetch(:name)
-  #   DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
-  # end
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name)
+    DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
+  end
 #
 #   define_singleton_method(:find) do |search_id|
 #     found_client = nil
