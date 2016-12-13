@@ -57,13 +57,13 @@ end
     end
   end
 
-  # describe('.find') do
-  #   it('will let you find a client by id, and return the client.') do
-  #   new_client1.save()
-  #   new_client2 = Client.new({:name => 'Gena',:id => nil, :stylist_id => 2})
-  #   new_client2.save()
-  #   expect(Client.find(new_client1.id())).to(eq(new_client1))
-  #   end
-  # end
+  describe('.find') do
+    it('will let you find a client by id, and return the client.') do
+    new_client1.save()
+    new_client2 = Client.new({:name => 'Gena',:id => nil, :stylist_id => 2})
+    new_client2.save()
+    expect(Client.find(new_client1.id())).to(eq(new_client1))
+    end
+  end
 
 end
