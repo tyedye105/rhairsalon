@@ -1,0 +1,24 @@
+<h1>Edit the details for <%= @stylist.name() %></h1>
+<div id="name_change">
+  <h3>Name Change</h3>
+  <form action="stylist/<%= @stylist.id %>" method="post">
+    <label for="name_change">Enter the change of name for <%= @stylist.name() %></label>
+    <br>
+    <input type="text" name="name_change">
+    <br>
+    <br>
+    <button type="submit" name="update" class="btn btn-success">update</button>
+  </form>
+
+</div>
+
+<div id="name_change">
+  <h3>Delete</h3>
+  <form action="/" method="post">
+    <input type="hidden" name="_method" value="delte">
+    <label for="name_change">Click the big red button to delete <%= @stylist.name() %></label>
+    <br>
+    <button type="submit" name="update" class="btn btn-danger btn-lg">Delete</button>
+  </form>
+
+</div>

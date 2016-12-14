@@ -13,3 +13,13 @@ describe('the path to add a stylist to the database.', {:type => :feature}) do
     expect(page).to have_content("Terra")
   end
 end
+
+describe('path to add a client to the database', {:type => :feature}) do
+  it("will take the user from the index, to a form where they can add the client.") do
+  visit('/')
+  click_link("Add a client")
+  fill_in("client_name", :with => "Letty")
+  click_button("Add client!")
+  expect(page).to have_content("Letty")
+  end
+end

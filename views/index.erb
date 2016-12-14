@@ -14,7 +14,7 @@
       <p> No stylists found, add them with the button below.</p>
       <% end %>
       <br>
-      <button  class="btn"><a href="/add_stylist" class="btn">Add a stylist</a></button>
+        <a href="/add_stylist"><button  class="btn">Add a stylist</button></a>
 
 </div>
 <br>
@@ -23,12 +23,12 @@
     <% if @clients.any?() %>
     <ul>
       <% @clients.each() do |client| %>
-      <li><a href="/clients/<%= client.id() %>"><%= client.name()%></a></li>
+      <li><%= client.name()%></li>
       <% end %>
     </ul>
     <% else %>
     <p> No clients found, add them with the button below.</p>
     <% end %>
     <br>
-    <button  class="btn"><a href="/add_client" class="btn">Add a client</a></button>
+    <a href="/add_client" class="btn"><button  class="btn">Add a client</button></a>
 </div>
