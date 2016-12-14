@@ -23,3 +23,16 @@ describe('path to add a client to the database', {:type => :feature}) do
   expect(page).to have_content("Letty")
   end
 end
+
+describe('path to delete a stylist', {:type => :feature}) do
+  it('will allow the user to delete the specified stylist') do
+    test_stylist = Stylist.new({:name => "Jerry"})
+    test_stylist.save()
+    visit('/')
+    click_link("Jerry")
+    click_button('update stylist')
+    visit('/stylists/:id/edit')
+    click_button("Delete")
+    expect(page.to have_content("No stylists"))
+  end
+end
