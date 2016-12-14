@@ -16,7 +16,7 @@
       <a href="/"><button class="btn" name="home">home</button></a>
     </div>
     <div class="col-md-4">
-      <a href="/"><button class="btn" name="add_client_to">add client to this stylists</button></a>
+      <a href="/stylists/<%= @stylist.id() %>/assign_client"><button class="btn" name="add_client_to">add a client to this stylists</button></a>
     </div>
     <div class="col-md-3">
       <a href="/stylists/<%= @stylist.id() %>/edit"><button class="btn" name="update">update stylist</button></a>

@@ -1,0 +1,10 @@
+<h1> Assign a client to <%= @stylist.name() %></h1>
+<form  action="/stylists/<%= @stylist.id() %>/clients" method="post">
+  <input type="hidden" name="stylist.id" value="<% @stylist.id() %>">
+  <select name = "clients" id="clients">
+    <% @clients.each() do |client| %>
+    <option><%= client.name() %></option>
+    <% end %>
+  </select>
+  <button type="submit" name="button">Add client!</button>
+</form>

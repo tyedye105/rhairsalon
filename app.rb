@@ -58,6 +58,16 @@ get('/add_client') do
   erb(:add_clientform)
 end
 
+get('/stylists/:id/assign_client') do
+  @stylist = Stylist.find(params.fetch('id').to_i)
+  @clients = Client.all()
+  erb(:add_client_to_stylist)
+end
+
+post('/stylists/:id/clients') do
+  @stylists = Stylist.find(params.fetch('id').to_i)
+
+end
 post('/client') do
   name = params.fetch('client_name')
   new_client = Client.new({:name => name, :stylist_id =>  0})
