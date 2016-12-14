@@ -23,12 +23,11 @@
     <% if @clients.any?() %>
     <ul>
       <% @clients.each() do |client| %>
-      <li><%= client.name()%></li>
+      <li><%= client.name()%> is a client of <%= Stylist.find(client.stylist_id().to_i)%> </li>
       <% end %>
     </ul>
     <% else %>
     <p> No clients found, add them with the button below.</p>
     <% end %>
     <br>
-    <a href="/add_client" class="btn"><button  class="btn">Add a client</button></a>
 </div>
