@@ -61,4 +61,17 @@ attr_reader(:name, :id)
   client_list
   end
 
+  define_method(:remove_client) do |client_name|
+    client_list = []
+    clients = DB.exec("SELECT * FROM clients WHERE stylist_id = ('#{@id}');")
+      clients.each() do |client|
+        name = client.fetch('name')
+        if client_name == name
+          DB.exec("UPDATE clients SET stylist_id = #{0} WHERE name = '#{client_name}';")
+        stylist_id = client.fetch('stylist_id').to_i()
+      end
+    end
+  end
+
+
 end

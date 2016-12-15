@@ -84,4 +84,17 @@ end
       expect(new_stylist1.clients()).to(eq([new_client, new_client2]))
       end
     end
+
+    describe('#remove_client') do
+  it ('let remove the association between a stylist and client.') do
+    new_stylist1.save()
+    new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => new_stylist1.id()})
+    new_client.save()
+    new_client2 = Client.new({:name => "Jenny", :id => nil, :stylist_id => new_stylist1.id()})
+    new_client2.save()
+    new_stylist1.remove_client(new_client.name)
+    expect(new_stylist1.clients()).to(eq([new_client2]))
+      end
+
+    end
   end
