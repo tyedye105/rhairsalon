@@ -66,4 +66,14 @@ end
     end
   end
 
+  describe('#add_stylist') do
+    it('will create the association between client and stylsit') do
+      new_client1.save()
+      test_stylist = Stylist.new({:name => "Leah"})
+      test_stylist.save()
+      new_client1.add_stylist(test_stylist.name)
+      expect(new_client1.stylist_id()).to(eq(1))
+    end
+  end
+
 end

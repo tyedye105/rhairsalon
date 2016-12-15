@@ -36,8 +36,6 @@ attr_reader(:name, :id)
     @name = attributes.fetch(:name, @name)
     DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
 
-    # attributes.fetch(:client_ids, []).each() do |client_id|
-    #   DB.exec("INSERT INTO clients (stylist_id) VALUES (#{@id});")
   end
 
   define_singleton_method(:find) do |search_id|

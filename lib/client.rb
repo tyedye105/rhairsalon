@@ -47,4 +47,17 @@ attr_reader(:name, :id, :stylist_id)
     end
     found_client
   end
+
+  define_method(:add_stylist) do |stylist_name|
+    stylists_list = []
+    stylist = DB.exec("SELECT * FROM stylists")
+      stylists_list.each() do |stylist|
+        name = client.fetch('name')
+        id = stylist.fetch('id')
+        if stylist_name == stylist.name()
+        DB.exec("UPDATE clients SET stylist_id = #{id.to_i} WHERE name = '#{@name}';")
+        stylist_id = client.fetch('stylist_id').to_i()
+      end
+    end
+  end
 end
