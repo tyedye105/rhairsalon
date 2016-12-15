@@ -56,7 +56,6 @@ attr_reader(:name, :id, :stylist_id)
         id = stylist.fetch('id')
         if stylist_name == stylist.name()
         DB.exec("UPDATE clients SET stylist_id = #{id.to_i} WHERE name = '#{@name}';")
-        stylist_id = client.fetch('stylist_id').to_i()
       end
     end
   end
