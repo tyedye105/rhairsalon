@@ -14,8 +14,8 @@
 </div>
 
 <div id="delete_change">
-  <h3>Delete</h3>
-  <form action="/stylist/<%= @stylist.id %>/delete" method="post">
+  <h3>Delete stylist</h3>
+  <form action="/stylists/<%= @stylist.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <label for="name_change">Click the big red button to delete <%= @stylist.name() %></label>
     <br>
