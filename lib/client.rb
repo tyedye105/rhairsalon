@@ -4,7 +4,7 @@ attr_reader(:name, :id, :stylist_id)
 
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
-    @stylist_id = attributes.fetch(:stylist_id)
+    @stylist_id = 0 + attributes.fetch(:stylist_id)
     @id = attributes[:id]
   end
 

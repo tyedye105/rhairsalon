@@ -54,11 +54,6 @@ patch('/stylists/:id') do
   erb(:stylist_id)
 end
 
-get('/add_client') do
-  erb(:add_clientform)
-end
-
-
 post('/stylists/:id/client_add') do
   client_id = params.fetch('client_number').to_i
   stylist_id = params.fetch('stylist_id').to_i
@@ -80,19 +75,29 @@ post('/stylists/:id/client_remove') do
 end
 
 
-
-
 get('/stylists/:id/client_management') do
   @stylist = Stylist.find(params.fetch('id').to_i)
   @clients = Client.all()
   erb(:add_client_to_stylist)
 end
 
-post('/client') do
+  post('/client_added') do
   name = params.fetch('client_name')
   new_client = Client.new({:name => name, :stylist_id =>  0})
   new_client.save()
   @clients = Client.all()
   @stylists = Stylist.all()
   erb(:index)
+end
+
+
+get('/add_client') do
+  erb(:add_clientform)
+end
+
+get('/clients/:id') do
+  @client = Client.find(params.fetch('id').to_i)
+  @stylist = Stylist.find(@client.stylist_id)
+
+erb(:client)
 end

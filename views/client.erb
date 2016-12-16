@@ -1,0 +1,14 @@
+<h1>Details for: <%= @client.name %></h1>
+<h3>Current Stylist:</h3>
+  <% if @client.stylist_id > 0 %>
+    <% @stylist.clients.each() do |client| %>
+    <% if client.name == @client.name %>
+      <h2><%= @stylist.name() %>   </h2>
+        <% end %>
+      <% end %>
+    <% else %>
+    <h2>none</h2>
+    <% end %>
+
+
+<a href="/"><button type="btn" name="home">home</button></a>
