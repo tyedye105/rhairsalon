@@ -58,22 +58,36 @@ get('/add_client') do
   erb(:add_clientform)
 end
 
-get('/stylists/:id/assign_client') do
-  @stylist = Stylist.find(params.fetch('id').to_i)
-  @clients = Client.all()
-  erb(:add_client_to_stylist)
-end
 
-post('/stylists/:id/clients') do
-  name = params.fetch('client_name')
-  stylist_id = params.fetch('stylist_id')
-  new_client = Client.new({:name => name, :stylist_id => stylist_id})
-  new_client.save()
+post('/stylists/:id/client_add') do
+  client_id = params.fetch('client_number').to_i
+  stylist_id = params.fetch('stylist_id').to_i
+  DB.exec("UPDATE clients SET stylist_id = #{stylist_id} WHERE id = #{client_id}")
   @clients = Client.all()
   @stylist = Stylist.find(params.fetch('id').to_i)
   erb(:stylist_id)
 
 end
+
+
+post('/stylists/:id/client_remove') do
+  client_id = params.fetch('client_number').to_i
+  DB.exec("UPDATE clients SET stylist_id = #{0} WHERE id = #{client_id}")
+  @clients = Client.all()
+  @stylist = Stylist.find(params.fetch('id').to_i)
+  erb(:stylist_id)
+
+end
+
+
+
+
+get('/stylists/:id/client_management') do
+  @stylist = Stylist.find(params.fetch('id').to_i)
+  @clients = Client.all()
+  erb(:add_client_to_stylist)
+end
+
 post('/client') do
   name = params.fetch('client_name')
   new_client = Client.new({:name => name, :stylist_id =>  0})

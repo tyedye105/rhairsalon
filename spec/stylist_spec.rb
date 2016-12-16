@@ -56,13 +56,6 @@ end
       new_stylist1.update({:name => "Anna"})
       expect(new_stylist1.name()).to(eq("Anna"))
     end
-    # it('will add a client to a stylist.') do
-    # new_stylist1.save()
-    # new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => nil})
-    # new_client.save()
-    # new_stylist1.update({:client_ids => [new_client.id()]})
-    # expect(new_stylist1.clients()).to(eq([new_client]))
-    # end
   end
 
   describe('.find') do
@@ -85,16 +78,15 @@ end
       end
     end
 
-    describe('#remove_client') do
-  it ('let remove the association between a stylist and client.') do
-    new_stylist1.save()
-    new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => new_stylist1.id()})
-    new_client.save()
-    new_client2 = Client.new({:name => "Jenny", :id => nil, :stylist_id => new_stylist1.id()})
-    new_client2.save()
-    new_stylist1.remove_client(new_client.name)
-    expect(new_stylist1.clients()).to(eq([new_client2]))
+  describe('#remove_client') do
+    it ('let remove the association between a stylist and client.') do
+      new_stylist1.save()
+      new_client = Client.new({:name => "Penny", :id => nil, :stylist_id => new_stylist1.id()})
+      new_client.save()
+      new_client2 = Client.new({:name => "Jenny", :id => nil, :stylist_id => new_stylist1.id()})
+      new_client2.save()
+      new_stylist1.remove_client(new_client.name)
+      expect(new_stylist1.clients()).to(eq([new_client2]))
       end
-
     end
   end

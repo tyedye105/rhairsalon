@@ -1,7 +1,28 @@
 <h1> Assign a client to <%= @stylist.name() %></h1>
-<form  action="/stylists/<%= @stylist.id() %>/clients" method="post">
+<form  action="/stylists/<%= @stylist.id() %>/client_add" method="post">
   <input type="hidden" name="stylist_id" value="<%= @stylist.id() %>">
-  <label for="client_name">Enter the name of the client</label>
-  <input type="text" name="client_name" id="client_name_input">
-  <button type="submit" name="button">Add client!</button>
+  <label for="client_name">Enter the number of the client.</label>
+  <input type="text" name="client_number" id="client_number_input">
+  <button class="btn" type="submit" name="button">Add client!</button>
 </form>
+<h1> Remove client from <%= @stylist.name() %></h1>
+<form  action="/stylists/<%= @stylist.id()%>/client_remove" method="post">
+  <input type="hidden" name="_method" value="_update">
+  <label for="client_name">Enter the number of the client.</label>
+  <input type="text" name="client_number" id="client_number_input">
+  <button class="btn-danger" type="submit" name="button">remove!</button>
+</form>
+<div class="client display">
+  <h3> Here are the current list of clients:</h3>
+    <% if @clients.any?() %>
+    <ul>
+      <% @clients.each() do |client| %>
+      <li><%= client.name()%>, client number:<%= client.id()%> </li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p> No clients found, add them with the button below.</p>
+    <% end %>
+</div>
+<a href="/"><button type="btn" name="home">home</button></a>
+<a href="/stylists/<%= @stylist.id() %>"><button type="btn" name="home">back to <%= @stylist.name() %></button></a>
