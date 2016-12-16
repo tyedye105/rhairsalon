@@ -11,7 +11,8 @@
 _This web app allows for users to add, update, or delete, stylists, and clients alike, while also allowing for adding clients to a specific stylist._
 
 
-## Setup/Installation Requirements
+## Setup/Installation Requirement
+  Must be able set up, and connect the app to a server to function properly.
 
 ###Database setup.
 
@@ -22,21 +23,21 @@ CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int)
 
 ####2. The files:
 * Clone this repository
+_https://github.com/tyedye105/rhairsalon_
 * install ruby (if not already there)
 * launch it in the terminal with ruby app.rb
 
 
 
 ## Known Bugs
-_ App is not feature complete. My understanding of how to use databases is not as great as I thought.
-
+ _no validation to prevent empty fields from being added. bugged integration specs._
 
 ## Support and contact details
 
 _For problems, or inquiries please contact me at tyedye105@yahoo.com_
 
 ## Technologies Used
-HTML, Bootstrap, CSS, Ruby,
+HTML, Bootstrap, CSS, Ruby, postgresql
 
 ### License
 

@@ -88,5 +88,5 @@ end
       new_stylist1.remove_client(new_client.name)
       expect(new_stylist1.clients()).to(eq([new_client2]))
       end
-    end
+    end 
   end

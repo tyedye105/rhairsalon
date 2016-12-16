@@ -7,7 +7,7 @@ require('./lib/client')
 require('capybara')
 also_reload('lib/**/*.rb')
 
-DB = PG.connect({:dbname => "hair_salon_test"})
+DB = PG.connect({:dbname => "hair_salon"})
 
 get('/') do
   @stylists = Stylist.all()
@@ -98,6 +98,20 @@ end
 get('/clients/:id') do
   @client = Client.find(params.fetch('id').to_i)
   @stylist = Stylist.find(@client.stylist_id)
+  erb(:client)
+end
 
-erb(:client)
+patch('/clients/:id/updated') do
+  @client = Client.find(params.fetch('id').to_i)
+  change_to = params.fetch('name_change')
+  @client.update({:name => change_to})
+  erb(:client)
+end
+
+delete('/:id/delete') do
+  @client = Client.find(params.fetch('id').to_i)
+  @client.delete()
+  @stylists = Stylist.all()
+  @clients = Client.all()
+  redirect('/')
 end

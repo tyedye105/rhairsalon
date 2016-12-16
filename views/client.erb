@@ -9,6 +9,18 @@
     <% else %>
     <h2>none</h2>
     <% end %>
+    <br>
+    <form action="/clients/<%= @client.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="name_change">Enter the correct name for the client.</label>
+      <input type="text" name="name_change" id="name_change">
+      <button type="submit" name="button" class="btn-info">update</button>
+    </form>
+    <form action="/<%= @client.id() %>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" name="button" class="btn-danger">delete</button>
+    </form>
+
 
 
 <a href="/"><button type="btn" name="home">home</button></a>

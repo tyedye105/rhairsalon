@@ -2,7 +2,6 @@
 <div class="" id="client_display">
   <h3> Here are the current clients this stylist has: <h3>
     <% if @stylist.clients.any?() %>
-
     <ul>
       <% @stylist.clients.each() do |client| %>
       <li><a href="/clients/<%= client.id() %>"><%= client.name()%></a></li>
@@ -22,5 +21,4 @@
       <a href="/stylists/<%= @stylist.id() %>/edit"><button class="btn" name="update">update stylist</button></a>
     </div>
   </div>
-
 </div>
